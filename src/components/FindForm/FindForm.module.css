@@ -1,0 +1,31 @@
+.input {
+    max-width: 580px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.button {
+    max-width: 190px;
+    height: 55px;
+    background-color: #000;
+    color: #fff;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    background-color: #313131;
+}
+
+.button:disabled{
+    background-color: #313131;
+    cursor: default;
+}
+
+.form {
+    display: flex;
+    margin-bottom: 40px;
+}
