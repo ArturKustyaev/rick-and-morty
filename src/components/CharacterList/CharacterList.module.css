@@ -11,3 +11,7 @@
     width: calc(33.33% - 30px);
     margin-bottom: 30px;
 }
+
+.pagination {
+    margin-bottom: 50px;
+}

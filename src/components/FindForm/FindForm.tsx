@@ -1,40 +1,35 @@
-import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import { Button, Input } from 'UI'
+import useUrlState from '@ahooksjs/use-url-state'
+import { useDebounce } from 'hooks'
+import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react'
+import { Input } from 'ui'
 import classes from './FindForm.module.css'
 
 interface FindFormProps {}
 
 export const FindForm: FC<FindFormProps> = (): JSX.Element => {
-	const [searchParams, setSearchParams] = useSearchParams()
-	const [inputValue, setInputValue] = useState(searchParams.get('name') || '')
+	const [urlParams, setUrlParams] = useUrlState({ name: '' })
+	const [inputValue, setInputValue] = useState(urlParams.name)
+	const debounceInputValue = useDebounce(inputValue.trim(), 500)
 
-	const submitHandler = (e: FormEvent) => {
-		e.preventDefault()
+	useEffect(() => {
+		setUrlParams({ name: debounceInputValue ? debounceInputValue : undefined })
+	}, [debounceInputValue, setUrlParams])
 
-		searchParams.set('name', inputValue)
-
-		if (searchParams.get('name')) {
-			setSearchParams(searchParams)
-		} else {
-			searchParams.delete('name')
-			setSearchParams(searchParams)
-		}
-	}
-
-	const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-		setInputValue(e.target.value)
-	}
+	const inputHandler = useCallback(
+		(e: ChangeEvent<HTMLInputElement>) => {
+			setInputValue(e.target.value)
+		},
+		[setInputValue]
+	)
 
 	return (
-		<form className={classes.form} onSubmit={submitHandler}>
+		<form className={classes.form}>
 			<Input
 				className={classes.input}
 				placeholder='find a character'
 				value={inputValue}
 				onChange={inputHandler}
 			/>
-			<Button className={classes.button}>find</Button>
 		</form>
 	)
 }

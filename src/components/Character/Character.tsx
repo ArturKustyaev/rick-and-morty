@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { FC, HTMLAttributes, useCallback, useState } from 'react'
-import { Button, Skeleton } from 'UI'
+import { Button, Skeleton } from 'ui'
 import classes from './Character.module.css'
 
 interface CharacterProps extends HTMLAttributes<HTMLDivElement> {

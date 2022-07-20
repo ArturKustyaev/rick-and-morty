@@ -1,6 +1,6 @@
 import { Header } from 'components'
 import { FC, HTMLAttributes, ReactNode } from 'react'
-import { Container } from 'UI'
+import { Container } from 'ui'
 import classes from './Layout.module.css'
 
 interface LayoutProps extends HTMLAttributes<HTMLDivElement> {

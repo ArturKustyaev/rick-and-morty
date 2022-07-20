@@ -1,44 +1,35 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import { Radiobutton } from 'UI'
+import useUrlState from '@ahooksjs/use-url-state'
+import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react'
+import { Radiobutton } from 'ui'
 import classes from './Filter.module.css'
 
 interface FilterProps {}
 
 export const Filter: FC<FilterProps> = (): JSX.Element => {
-	const [searchParams, setSearchParams] = useSearchParams()
-	const [selectedStatus, setSelectedStatus] = useState(searchParams.get('status') || '')
-	const [selectedGender, setSelectedGender] = useState(searchParams.get('gender') || '')
+	const [urlParams, setUrlParams] = useUrlState({ status: '', gender: '' })
+	const [selectedStatus, setSelectedStatus] = useState(urlParams.status)
+	const [selectedGender, setSelectedGender] = useState(urlParams.gender)
 
 	useEffect(() => {
-		searchParams.set('status', selectedStatus)
+		setUrlParams({
+			status: selectedStatus ? selectedStatus : undefined,
+			gender: selectedGender ? selectedGender : undefined
+		})
+	}, [selectedStatus, selectedGender, setUrlParams])
 
-		if (searchParams.get('status')) {
-			setSearchParams(searchParams)
-		} else {
-			searchParams.delete('status')
-			setSearchParams(searchParams)
-		}
-	}, [searchParams, setSearchParams, selectedStatus])
+	const selectHandler = useCallback(
+		(e: ChangeEvent<HTMLInputElement>) => {
+			setSelectedStatus(e.target.value)
+		},
+		[setSelectedStatus]
+	)
 
-	useEffect(() => {
-		searchParams.set('gender', selectedGender)
-
-		if (searchParams.get('gender')) {
-			setSearchParams(searchParams)
-		} else {
-			searchParams.delete('gender')
-			setSearchParams(searchParams)
-		}
-	}, [searchParams, setSearchParams, selectedGender])
-
-	const selectHandler = (e: ChangeEvent<HTMLInputElement>) => {
-		setSelectedStatus(e.target.value)
-	}
-
-	const selectGenderHandler = (e: ChangeEvent<HTMLInputElement>) => {
-		setSelectedGender(e.target.value)
-	}
+	const selectGenderHandler = useCallback(
+		(e: ChangeEvent<HTMLInputElement>) => {
+			setSelectedGender(e.target.value)
+		},
+		[setSelectedGender]
+	)
 
 	return (
 		<div className={classes.root}>

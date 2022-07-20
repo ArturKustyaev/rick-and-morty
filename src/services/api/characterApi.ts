@@ -6,7 +6,7 @@ export const characterApi = createApi({
 	endpoints: builder => ({
 		getCharacters: builder.query<
 			ResponseData<Character[]>,
-			{ name: string; status: string; gender: string }
+			{ name: string; status: string; gender: string; page: number }
 		>({
 			query: params => {
 				return {

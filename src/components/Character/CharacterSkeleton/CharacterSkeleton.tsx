@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { Skeleton } from 'UI'
+import { Skeleton } from 'ui'
 import { FC } from 'react'
 import classes from './CharacterSkeleton.module.css'
 

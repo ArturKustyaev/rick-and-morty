@@ -1,4 +1,4 @@
-import { Container } from 'UI'
+import { Container } from 'ui'
 import { FC } from 'react'
 import logo from 'static/images/logo.png'
 import classes from './Header.module.css'
