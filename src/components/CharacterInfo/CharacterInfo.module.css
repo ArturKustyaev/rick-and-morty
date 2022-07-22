@@ -1,0 +1,84 @@
+.character_container {}
+
+.skeleton {
+    margin-bottom: 15px;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.character_info {
+    max-width: 262px;
+    width: 100%;
+}
+
+.character_image {
+    display: block;
+    max-width: 262px;
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.image_skeleton {
+    max-width: 262px;
+    width: 100%;
+    aspect-ratio: 1;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.character_image__hide {
+    display: none;
+}
+
+.characteristics {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.characteristic_col {
+    margin-right: 15px;
+}
+
+.label,
+.value {
+    margin-bottom: 10px;
+    display: block;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.label {
+    font-weight: 800;
+}
+
+.value {
+    font-weight: 400;
+}
+
+.episodes_container {
+    max-width: 200px;
+    width: 100%;
+
+}
+
+.episodes_title {
+    margin-bottom: 15px;
+}
+
+.episodes_list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.button {
+    max-width: 94px;
+    height: 30px;
+    text-transform: uppercase;
+    font-size: 20px;
+}

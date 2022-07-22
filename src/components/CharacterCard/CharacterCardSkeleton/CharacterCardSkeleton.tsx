@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { Skeleton } from 'ui'
 import { FC } from 'react'
-import classes from './CharacterSkeleton.module.css'
+import classes from './CharacterCardSkeleton.module.css'
 
 interface CharacterSkeletonProps {
 	className?: string

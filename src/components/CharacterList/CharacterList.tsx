@@ -1,6 +1,6 @@
 import useUrlState from '@ahooksjs/use-url-state'
 import classNames from 'classnames'
-import { Character, CharacterSkeleton } from 'components'
+import { CharacterCard, CharacterInfoModal, CharacterSkeleton } from 'components'
 import { FC, useEffect, useState } from 'react'
 import { useGetCharactersQuery } from 'services'
 import { Pagination } from 'ui'
@@ -12,6 +12,7 @@ interface CharacterListProps {
 
 export const CharacterList: FC<CharacterListProps> = ({ className }): JSX.Element => {
 	const [urlParams, setUrlParams] = useUrlState({
+		id: undefined,
 		name: '',
 		status: '',
 		gender: '',
@@ -19,8 +20,9 @@ export const CharacterList: FC<CharacterListProps> = ({ className }): JSX.Elemen
 	})
 
 	const [currentPage, setCurrentPage] = useState<number>(urlParams.page)
+	const [isModalOpen, setIsModalOpen] = useState(urlParams.id !== undefined)
 
-	const { data, isFetching, isSuccess, error } = useGetCharactersQuery({
+	const { data, isFetching, isSuccess } = useGetCharactersQuery({
 		gender: urlParams.gender,
 		status: urlParams.status,
 		name: urlParams.name,
@@ -43,6 +45,16 @@ export const CharacterList: FC<CharacterListProps> = ({ className }): JSX.Elemen
 		setCurrentPage(selected + 1)
 	}
 
+	const setModalCloseHandler = () => {
+		setIsModalOpen(false)
+		setUrlParams({ id: undefined })
+	}
+
+	const onShowInfo = (id: number) => {
+		setIsModalOpen(true)
+		setUrlParams({ id })
+	}
+
 	return (
 		<>
 			<div className={classNames(classes.character_list, className)}>
@@ -52,7 +64,12 @@ export const CharacterList: FC<CharacterListProps> = ({ className }): JSX.Elemen
 					))}
 				{isSuccess &&
 					data?.results.map(character => (
-						<Character className={classes.character} key={character.id} character={character} />
+						<CharacterCard
+							className={classes.character}
+							key={character.id}
+							character={character}
+							onShowInfo={onShowInfo}
+						/>
 					))}
 			</div>
 			{isSuccess && (
@@ -63,6 +80,7 @@ export const CharacterList: FC<CharacterListProps> = ({ className }): JSX.Elemen
 					onChange={setPaginateHandler}
 				/>
 			)}
+			{isModalOpen && <CharacterInfoModal isOpen={isModalOpen} onClose={setModalCloseHandler} />}
 		</>
 	)
 }

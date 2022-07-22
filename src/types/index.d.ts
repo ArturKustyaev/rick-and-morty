@@ -22,3 +22,12 @@ type GenderType = 'Female' | 'Male' | 'Genderless' | 'unknown'
 
 type StatusType = 'Dead' | 'Alive' | 'unknown'
 
+interface Episode {
+	id: number;
+	name: string;
+	air_date: string;
+	episode: string;
+	characters: string[];
+	url: string;
+	created: Date;
+}

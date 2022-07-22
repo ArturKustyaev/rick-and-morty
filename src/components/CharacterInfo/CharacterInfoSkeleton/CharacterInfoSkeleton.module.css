@@ -1,0 +1,28 @@
+.container {
+    max-width: 262px;
+    width: 100%;
+}
+
+.image {
+    width: 100%;
+    max-width: 262px;
+    aspect-ratio: 1;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.characteristic {
+    width: 80%;
+    height: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.button {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 94px;
+    height: 30px;
+    border-radius: 5px;
+}
