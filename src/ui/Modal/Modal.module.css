@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
 }
 
 .modal_backdrop__active {

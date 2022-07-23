@@ -12,15 +12,41 @@
     border-radius: 5px;
 }
 
-.characteristic {
-    width: 80%;
+.table {
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    padding: 5px;
+    width: 40%;
+}
+
+.cell_grow {
+    padding: 5px;
+    flex: 1 1 auto;
+}
+
+.label,
+.value {
     height: 20px;
-    margin-bottom: 10px;
     border-radius: 5px;
 }
 
+.label {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 800;
+}
+
+.value {
+    width: 100%;
+}
+
 .button {
-    margin-top: 40px;
     width: 100%;
     max-width: 94px;
     height: 30px;

@@ -11,14 +11,18 @@ export const CharacterInfoModal: FC<CharacterInfoModalProps> = ({
 	isOpen,
 	onClose
 }): JSX.Element => {
-	const [urlParams] = useUrlState<{ id: number | undefined }>({ id: 0 })
+	const [urlParams] = useUrlState<{ id: number | undefined }>({ id: undefined })
 
 	const { data, isFetching, isSuccess } = useGetCharacterByIdQuery(urlParams.id)
+
+	const onCloseCharacterModal = () => {
+		onClose()
+	}
 
 	return (
 		<Modal className={classes.modal_container} isOpen={isOpen} onClose={onClose}>
 			{isFetching && <CharacterInfoModalSkeleton />}
-			{isSuccess && data && <CharacterInfo character={data} />}
+			{isSuccess && <CharacterInfo character={data} onClose={onCloseCharacterModal} />}
 		</Modal>
 	)
 }

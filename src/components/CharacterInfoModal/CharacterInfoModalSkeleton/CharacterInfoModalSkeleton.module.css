@@ -1,18 +1,31 @@
 .container {
-    max-width: 555px;
+    max-width: 700px;
     display: flex;
     justify-content: space-between;
 }
 
-.episodes_container {
-    max-width: 200px;
+.character_info_container {
+    max-width: 262px;
     width: 100%;
+    margin-right: 30px;
+}
+
+.episodes_container {
+    width: 100%;
+}
+
+.episodes_list {
+    padding: 15px;
+    max-height: 440px;
+    overflow-y: auto;
 }
 
 .episodes_title {
     line-height: 22px;
+    margin-left: 15px;
     margin-bottom: 15px;
     font-size: 18px;
+    font-weight: 800;
 }
 
 .episodes {

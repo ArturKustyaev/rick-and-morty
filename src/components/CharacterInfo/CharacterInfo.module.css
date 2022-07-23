@@ -6,12 +6,12 @@
 
 .inner {
     display: flex;
-    justify-content: space-between;
 }
 
 .character_info {
     max-width: 262px;
     width: 100%;
+    margin-right: 30px;
 }
 
 .character_image {
@@ -37,8 +37,29 @@
 }
 
 .characteristics {
-    display: flex;
     margin-bottom: 30px;
+    width: 100%;
+}
+
+.table_row {
+    display: flex;
+}
+
+.table_cell {
+    padding: 5px;
+    width: 40%;
+}
+
+.table_cell__first {
+    padding-left: 0;
+}
+
+.tables_cell_grow {
+    flex-grow: 1;
+}
+
+.characteristic_row {
+    display: flex;
 }
 
 .characteristic_col {
@@ -47,8 +68,6 @@
 
 .label,
 .value {
-    margin-bottom: 10px;
-    display: block;
     font-size: 18px;
     line-height: 20px;
 }
@@ -62,17 +81,19 @@
 }
 
 .episodes_container {
-    max-width: 200px;
-    width: 100%;
-
+    flex: 1 1 auto;
 }
 
 .episodes_title {
     margin-bottom: 15px;
+    margin-left: 15px;
+    font-weight: 800;
+    font-size: 18px;
 }
 
 .episodes_list {
-    max-height: 400px;
+    padding: 15px;
+    max-height: 440px;
     overflow-y: auto;
 }
 
