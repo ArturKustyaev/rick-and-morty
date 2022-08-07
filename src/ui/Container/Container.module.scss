@@ -1,0 +1,29 @@
+@import 'styles';
+
+.container {
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: $container-xl;
+    height: inherit;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+
+    @media (max-width: $breakpoint-lg) {
+        max-width: $container-lg;
+    }
+
+    @media (max-width: $breakpoint-md) {
+        max-width: $container-md;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+        max-width: $container-sm;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+        max-width: $container-xs;
+    }
+}
