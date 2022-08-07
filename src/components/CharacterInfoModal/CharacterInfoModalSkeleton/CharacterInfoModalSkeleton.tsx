@@ -13,7 +13,7 @@ export const CharacterInfoModalSkeleton: FC<CharacterInfoModalSkeletonProps> = (
 			<div className={classes.episodes_container}>
 				<h3 className={classes.episodes_title}>episodes</h3>
 				<div className={classes.episodes_list}>
-					{[0, 0, 0, 0, 0].map((_, index) => (
+					{[0, 0, 0, 0].map((_, index) => (
 						<EpisodeCardSkeleton className={classes.episodes} key={index} />
 					))}
 				</div>

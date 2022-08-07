@@ -1,5 +1,5 @@
 import useUrlState from '@ahooksjs/use-url-state'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { CharacterCard, CharacterInfoModal, CharacterSkeleton } from 'components'
 import { FC, useEffect, useState } from 'react'
 import { useGetCharactersQuery } from 'services'
@@ -57,7 +57,7 @@ export const CharacterList: FC<CharacterListProps> = ({ className }): JSX.Elemen
 
 	return (
 		<>
-			<div className={classNames(classes.character_list, className)}>
+			<div className={cn(classes.character_list, className)}>
 				{isFetching &&
 					[0, 0, 0, 0, 0, 0].map((_, index) => (
 						<CharacterSkeleton className={classes.character} key={index} />

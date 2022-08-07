@@ -11,12 +11,6 @@ export const Header: FC<HeaderProps> = (): JSX.Element => {
 			<Container>
 				<div className={classes.header_inner}>
 					<img src={logo} alt='logo' />
-					<nav>
-						<ul>
-							<li>locations</li>
-							<li>episodes</li>
-						</ul>
-					</nav>
 				</div>
 			</Container>
 		</div>

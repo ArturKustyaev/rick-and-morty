@@ -85,7 +85,7 @@ export const CharacterInfo: FC<CharacterInfoProps> = ({ character, onClose }): J
 					<h3 className={classes.episodes_title}>episodes</h3>
 					<div className={classes.episodes_list}>
 						{isFetching &&
-							[0, 0, 0, 0, 0].map((_, index) => (
+							[0, 0, 0, 0].map((_, index) => (
 								<EpisodeCardSkeleton className={classes.skeleton} key={index} />
 							))}
 						{isSuccess &&
