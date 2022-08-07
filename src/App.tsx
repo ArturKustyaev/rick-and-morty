@@ -7,7 +7,7 @@ export const App: FC = (): JSX.Element => {
 	return (
 		<div className='App'>
 			<Routes>
-				<Route path='/' element={<Home />} />
+				<Route path='/rick-and-morty' element={<Home />} />
 			</Routes>
 		</div>
 	)
