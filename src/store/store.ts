@@ -1,11 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { characterApi, episodeService } from 'services'
+import { api, character, episode } from 'services'
 
 export const store = configureStore({
 	reducer: {
-		[characterApi.reducerPath]: characterApi.reducer,
-		[episodeService.reducerPath]: episodeService.reducer
+		[api.reducerPath]: api.reducer
 	},
 	middleware: getDefaultMiddleware =>
-		getDefaultMiddleware().concat(characterApi.middleware, episodeService.middleware)
+		getDefaultMiddleware().concat(character.middleware, episode.middleware)
 })
