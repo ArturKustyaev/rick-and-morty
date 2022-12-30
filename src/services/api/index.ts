@@ -1,2 +1,3 @@
-export * from './characterApi'
-export * from './episodeService'
+export * from './character'
+export * from './episode'
+export * from './api'

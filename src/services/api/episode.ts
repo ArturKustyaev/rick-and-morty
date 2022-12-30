@@ -1,8 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { api } from './api'
 
-export const episodeService = createApi({
-	reducerPath: 'episodes/api',
-	baseQuery: fetchBaseQuery({ baseUrl: 'https://rickandmortyapi.com/api' }),
+export const episode = api.injectEndpoints({
 	endpoints: builder => ({
 		getEpicodeById: builder.query<Episode[], number | number[]>({
 			query: id => {
@@ -13,11 +11,11 @@ export const episodeService = createApi({
 			},
 			transformResponse: (response: Episode[]) => {
 				if (!Array.isArray(response)) return [response]
-				
+
 				return response
-			} 
+			}
 		})
 	})
 })
 
-export const { useGetEpicodeByIdQuery } = episodeService
+export const { useGetEpicodeByIdQuery } = episode
